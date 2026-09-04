@@ -1,0 +1,1 @@
+Deno.serve(async (r) => { const u = new URL(r.url); let p = u.pathname == "/" ? "/index.html" : u.pathname; try { return new Response(await Deno.readFile("." + p), { headers: {"content-type": "text/html; charset=utf-8"} }); } catch (_e) { return new Response(await Deno.readFile("./index.html"), { headers: {"content-type": "text/html; charset=utf-8"} }); } });
